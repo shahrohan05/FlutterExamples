@@ -95,7 +95,25 @@ class FirstRoute extends StatelessWidget {
                 );
               },
             ),
-            SelectionButton()
+            SelectionButton(),
+            Padding(
+              child:GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (_) {
+                      return ImageScreen();
+                    })
+                  );
+                },
+                child: Hero(
+                  tag: 'screenshotImage',
+                  child: Image.asset('images/Screenshot_20190314-012221.jpg'),
+                )
+              ),
+              padding: EdgeInsets.fromLTRB(120.0, 25.0, 120.0, 0.0)
+            )
+            
           ],
         )
         
@@ -186,6 +204,31 @@ class SelectionScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ImageScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Screenshot Image'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(15.0),
+        child: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Center(
+          child: Hero(
+            tag: 'screenshotImage',
+            child: Image.asset('images/Screenshot_20190314-012221.jpg'),
+          )
+        ),
+      ),
+      )
     );
   }
 }
