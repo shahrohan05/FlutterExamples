@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 void main() => runApp(MyApp());
 
 class ScreenArgumets {
@@ -38,6 +39,32 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
+class SelectionButton extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      onPressed: () {
+        _navigateAndDisplaySelection(context);
+      },
+      child: Text('Pick a hero'),
+    );
+  }
+}
+
+_navigateAndDisplaySelection(BuildContext context) async {
+  final result = await Navigator.push(
+    context, 
+    MaterialPageRoute(builder: (context) => SelectionScreen()));
+
+    Scaffold.of(context)
+      ..removeCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text("Picked Hero : $result"),));
+
+}
+
 class FirstRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -67,7 +94,8 @@ class FirstRoute extends StatelessWidget {
                   arguments: ScreenArgumets('Third Route', 'These arguments are set using onRouteGenerator!')
                 );
               },
-            )
+            ),
+            SelectionButton()
           ],
         )
         
@@ -112,6 +140,51 @@ class ThirdRoute extends StatelessWidget {
       ),
       body: Center(
         child: Text(message),
+      ),
+    );
+  }
+}
+
+class SelectionScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Pick an option'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                onPressed: () {
+                  Navigator.pop(context, 'IRON MAN');
+                },
+                child: Text('IRON MAN'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                onPressed: () {
+                  Navigator.pop(context, 'HULK');
+                },
+                child: Text('HULK'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                onPressed: () {
+                  Navigator.pop(context, 'CAPTAIN MARVEL');
+                },
+                child: Text('CAPTAIN MARVEL'),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
