@@ -61,7 +61,24 @@ class LogoAnimation extends StatefulWidget {
   }
 }
 
-class _LogoAppState extends State<LogoAnimation> {
+class _LogoAppState extends State<LogoAnimation> with SingleTickerProviderStateMixin {
+  
+  Animation<double> animation;
+  AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(duration: const Duration(seconds: 2), vsync: this);
+    animation = Tween<double>(begin: 0, end: 300).animate(controller)
+      ..addListener(() {
+        setState(() {
+          
+        });
+      });
+      controller.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,12 +88,18 @@ class _LogoAppState extends State<LogoAnimation> {
       body: Center(
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 10),
-        height: 200,
-        width: 200,
+        height: animation.value,
+        width: animation.value,
         child: FlutterLogo(),
       ),
     ),
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }
 
