@@ -58,11 +58,12 @@ _navigateAndDisplaySelection(BuildContext context) async {
   final result = await Navigator.push(
     context, 
     MaterialPageRoute(builder: (context) => SelectionScreen()));
-
-    Scaffold.of(context)
+    
+    if(result!=null) {
+      Scaffold.of(context)
       ..removeCurrentSnackBar()
       ..showSnackBar(SnackBar(content: Text("Picked Hero : $result"),));
-
+    }
 }
 
 class FirstRoute extends StatelessWidget {
@@ -212,9 +213,7 @@ class ImageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Screenshot Image'),
-      ),
+      
       body: Padding(
         padding: EdgeInsets.all(15.0),
         child: GestureDetector(
