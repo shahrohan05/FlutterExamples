@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'animatedBuilder.dart';
 
 void main() => runApp(MyApp());
 
@@ -55,6 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => LogoAnimationAW()));
               },
               child: Text('Logo Animation with Animated Widget'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder : (context) => AnimatedBuilderSample()));
+              },
+              child: Text('Animated Builder Sample'),
             )
           ],
         ),
