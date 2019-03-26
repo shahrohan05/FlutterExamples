@@ -25,6 +25,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
+testFunction({@required int id, String name}) {
+  
+}
+
 class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -45,6 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => LogoAnimation()));
               },
               child: Text('Logo Animation'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LogoAnimationAW()));
+              },
+              child: Text('Logo Animation with Animated Widget'),
             )
           ],
         ),
@@ -92,6 +102,71 @@ class _LogoAppState extends State<LogoAnimation> with SingleTickerProviderStateM
         width: animation.value,
         child: FlutterLogo(),
       ),
+    ),
+    );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+}
+
+class AnimatedLogo extends AnimatedWidget {
+ AnimatedLogo({Key key, Animation<double> animation})
+  : super(key: key, listenable: animation);
+
+  @override
+  Widget build(BuildContext context) {
+    final Animation<double> animation = listenable;
+    return Center(
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 10),
+        height: animation.value,
+        width: animation.value,
+        child: FlutterLogo()
+      ),
+    );
+  }
+}
+/**Animated logo with Animated Widget */
+class LogoAnimationAW extends StatefulWidget {
+  @override
+  State<LogoAnimationAW> createState() {
+    return _LogoAppStateAW();
+  }
+}
+
+class _LogoAppStateAW extends State<LogoAnimationAW> with SingleTickerProviderStateMixin {
+  
+  Animation<double> animation;
+  AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(duration: const Duration(seconds: 2), vsync: this);
+    animation = Tween<double>(begin: 0, end: 300).animate(controller)
+      ..addStatusListener((state) {
+        if(state == AnimationStatus.completed) {
+          controller.reverse();
+        } else if (state == AnimationStatus.dismissed) {
+          controller.forward();
+        }
+      })
+      ..addStatusListener((status) => print('$status'));
+    controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Logo Animation Page')
+      ),
+      body: Center(
+      child: AnimatedLogo(animation: animation)
     ),
     );
   }
