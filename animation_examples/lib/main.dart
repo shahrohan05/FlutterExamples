@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'animatedBuilder.dart';
+import 'SimultaneousAnimations.dart';
 
 void main() => runApp(MyApp());
 
@@ -62,6 +63,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(context, MaterialPageRoute(builder : (context) => AnimatedBuilderSample()));
               },
               child: Text('Animated Builder Sample'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder : (context) => SimultaneousAnimationsSample()));
+              },
+              child: Text('Simultaneous Animation Sample'),
             )
           ],
         ),
