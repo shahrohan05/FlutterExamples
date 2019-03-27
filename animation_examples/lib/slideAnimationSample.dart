@@ -17,11 +17,11 @@ class _SlideAnimationSampleState extends State<SlideAnimationSample> with Ticker
   void initState() {
     super.initState();
     _controller =AnimationController(duration: const Duration(seconds: 2), vsync: this);
-    _slideOffsetAnimation = Tween<Offset>(begin: Offset(1.1, 0.0), end: Offset(0.0, 0.0)).animate(
+    _slideOffsetAnimation = Tween<Offset>(begin: Offset(2.0, 0.0), end: Offset(0.0, 0.0)).animate(
       new CurvedAnimation(
         parent: _controller,
-        curve: Curves.easeIn,
-        reverseCurve: Curves.easeOut
+        curve: Curves.ease,
+        reverseCurve: Curves.ease
       )
     );
     _controller.forward();
