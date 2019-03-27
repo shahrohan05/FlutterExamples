@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'animatedBuilder.dart';
 import 'SimultaneousAnimations.dart';
+import 'slideAnimationSample.dart';
 
 void main() => runApp(MyApp());
 
@@ -69,6 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(context, MaterialPageRoute(builder : (context) => SimultaneousAnimationsSample()));
               },
               child: Text('Simultaneous Animation Sample'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder : (context) => SlideAnimationSample()));
+              },
+              child: Text('Slide Animation Sample'),
             )
           ],
         ),
@@ -161,7 +168,13 @@ class _LogoAppStateAW extends State<LogoAnimationAW> with SingleTickerProviderSt
   void initState() {
     super.initState();
     controller = AnimationController(duration: const Duration(seconds: 2), vsync: this);
-    animation = Tween<double>(begin: 0, end: 300).animate(controller)
+    animation = Tween<double>(begin: 0, end: 300).animate(
+      new CurvedAnimation(
+        parent: controller,
+        curve: Curves.easeInCirc,
+        reverseCurve: Curves.easeOutBack
+      )
+    )
       ..addStatusListener((state) {
         if(state == AnimationStatus.completed) {
           controller.reverse();
@@ -177,7 +190,7 @@ class _LogoAppStateAW extends State<LogoAnimationAW> with SingleTickerProviderSt
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Logo Animation Page')
+        title: Text('Logo Animation with Animated Widget')
       ),
       body: Center(
       child: AnimatedLogo(animation: animation)

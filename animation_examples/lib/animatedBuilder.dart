@@ -49,7 +49,13 @@ class _AnimatedBuilderSampleState extends State<AnimatedBuilderSample>
     super.initState();
     controller =
         AnimationController(duration: const Duration(seconds: 3), vsync: this);
-    animation = Tween<double>(begin: 0, end: 500).animate(controller);
+    animation = Tween<double>(begin: 0, end: 500).animate(
+      new CurvedAnimation(
+        parent: controller,
+        curve: Curves.ease,
+        reverseCurve: Curves.easeOut
+      )
+    );
     controller.forward();
   }
 

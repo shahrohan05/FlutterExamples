@@ -62,7 +62,7 @@ class _SimultaneousAnimationsSampleState extends State<SimultaneousAnimationsSam
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Animated Builder Sample')),
+      appBar: AppBar(title: Text('Simultaneous Animation Sample')),
       body: Center(
           child: GrowTransition(child: ImageWidget(), sizeAnimation: sizeAnimation,opacityAnimation: opacityAnimation,)
         ),
