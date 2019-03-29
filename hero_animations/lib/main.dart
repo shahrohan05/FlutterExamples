@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/scheduler.dart' show timeDilation;
+import 'package:flutter/scheduler.dart' show timeDilation;
 
 import 'dart:math' as math;
 
@@ -134,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    //timeDilation = 5.0;
+    timeDilation = 3.0;
 
     return Scaffold(
         appBar: AppBar(
