@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'sliverList.dart';
+import 'sliverGrid.dart';
 
 void main() => runApp(MyApp());
 
@@ -43,6 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => SliverListDemo()));
               },
               child: Text('Sliver List Demo'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SliverGridDemo()));
+              },
+              child: Text('Sliver Grid Demo'),
             )
           ],
         )
