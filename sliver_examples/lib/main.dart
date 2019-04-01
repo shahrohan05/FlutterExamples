@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sliverList.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,7 +35,17 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Text('TEST')
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SliverListDemo()));
+              },
+              child: Text('Sliver List Demo'),
+            )
+          ],
+        )
       ),
     );
   }
