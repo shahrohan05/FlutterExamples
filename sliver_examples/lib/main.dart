@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'sliverList.dart';
 import 'sliverGrid.dart';
+import 'sliverAppBar.dart';
+import 'sliverPersistentHeader.dart';
 
 void main() => runApp(MyApp());
 
@@ -50,6 +52,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => SliverGridDemo()));
               },
               child: Text('Sliver Grid Demo'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SliverAppBarDemo()));
+              },
+              child: Text('Sliver App Bar Demo'),
+            ),
+             RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => SliverPersistentHeaderDemo()));
+              },
+              child: Text('Sliver Persistent Header Demo'),
             )
           ],
         )
