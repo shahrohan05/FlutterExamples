@@ -59,7 +59,25 @@ class CollapsingList extends StatelessWidget {
               if(headerText=='Header Section 2') {
                 _scrollController.animateTo(
                  681.152,
-                  duration: Duration(milliseconds: 200),
+                  duration: Duration(milliseconds: 400),
+                  curve: Curves.easeInBack
+                );
+              }else if(headerText=='Header Section 1') {
+                _scrollController.animateTo(
+                 0.0,
+                  duration: Duration(milliseconds: 400),
+                  curve: Curves.easeInBack
+                );
+              }else if(headerText=='Header Section 3') {
+                _scrollController.animateTo(
+                 1571.324,
+                  duration: Duration(milliseconds: 400),
+                  curve: Curves.easeInBack
+                );
+              }else if(headerText=='Header Section 4') {
+                _scrollController.animateTo(
+                 2079.592,
+                  duration: Duration(milliseconds: 400),
                   curve: Curves.easeInBack
                 );
               }
@@ -94,7 +112,7 @@ class CollapsingList extends StatelessWidget {
     return CustomScrollView(
       controller: _scrollController,
       slivers: <Widget>[
-        makeHeader('Header Secton 1'),
+        makeHeader('Header Section 1'),
         SliverGrid.count(
           crossAxisCount: 3,
           children: [
