@@ -1,6 +1,6 @@
 # my_favorites
 
-A sample Flutter project to learn app state management explained in the following tutorial :
+A sample Flutter project to learn app state management using scoped_model explained in the following tutorial :
 
 - [Simple App State Management](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple)
 
