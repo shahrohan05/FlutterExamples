@@ -4,14 +4,18 @@ import 'hero.dart';
 import 'dart:collection';
 
 class FavoritesModel extends Model {
-    final List<Hero> _heroes = [];
+    final List<HeroItem> _heroes = [];
 
-    UnmodifiableListView<Hero> get heroes => UnmodifiableListView(_heroes);
+    UnmodifiableListView<HeroItem> get heroes => UnmodifiableListView(_heroes);
 
     int get count => _heroes.length;
 
-    void add(Hero hero) {
+    void add(HeroItem hero) {
       _heroes.add(hero);
       notifyListeners();
+    }
+
+    void clear() {
+      _heroes.clear();
     }
 }
