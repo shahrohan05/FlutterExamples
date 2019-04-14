@@ -15,6 +15,11 @@ class FavoritesModel extends Model {
       notifyListeners();
     }
 
+    void remove(HeroItem heroItem) {
+      _heroes.removeAt(_heroes.indexOf(heroItem));
+      notifyListeners();
+    }
+
     void clear() {
       _heroes.clear();
     }

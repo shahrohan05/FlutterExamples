@@ -28,5 +28,8 @@ class HeroItem {
   bool operator ==(other) => other is HeroItem && other.name == this.name;
 
   @override
+  int get hashCode => super.hashCode;
+
+  @override
   String toString() => name;
 }
