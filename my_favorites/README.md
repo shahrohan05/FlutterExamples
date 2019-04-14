@@ -6,13 +6,8 @@ A sample Flutter project to learn app state management using scoped_model explai
 
 -----------------------------------------------------------------------------------------------------------
 
-The app has three screens :
-1. Login 
-    - User enters his/her name and the user is greeted with toast message (showing if the user is new visitor
-    or an existing one). User's favorites list is loaded accordingly.
-2. Items List
-    - List of random items user can set as favorites and the favorited items can also be removed for each user.
+The app has two screens :
+2. Heroes List
+    - List of random heroes user can set as favorites and the favorited heroes can also be removed.
 3. Favorites
-    - List of favorites items for the user.
-
-The app state maintains the logged in user and his/her favorite items list.
+    - List of favorite heroes.
