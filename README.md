@@ -5,3 +5,4 @@ Random example flutter projects.
 4. staggered_animation : Staggered animation sample in flutter
 5. sliver_examples : Sliver sample in Flutter
 6. my_favorites : Sample favorites app to learn app state management in Flutter
+7. flutter_stream_sample : Sample shopping app to learn state management through streams in Flutter
