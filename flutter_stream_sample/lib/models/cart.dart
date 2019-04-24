@@ -25,6 +25,7 @@ class Cart {
     _updateCount(product, count);
   }
 
+
   void remove(Product product, [int count = 1]) {
     _updateCount(product, -count);    
   }

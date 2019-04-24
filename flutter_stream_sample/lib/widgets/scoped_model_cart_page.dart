@@ -15,11 +15,12 @@ class ScopedModelCartPage extends StatelessWidget {
       ),
       body: ScopedModelDescendant<CartModel>(
         builder: (context,child,cartModel) => cartModel != null
-        ? ListView(
+        ? /*ListView(
           children: cartModel.items.map(
             (item) => ItemTile(item)
           ).toList(),
-        )
+        )*/
+        ListView()
         : Center(
           child: Text('Empty',
             style: Theme.of(context).textTheme.display1,

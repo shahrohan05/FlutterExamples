@@ -9,9 +9,9 @@ import 'package:rxdart/subjects.dart';
 class CartBloc {
   final _cart = Cart();
 
-  Sink<Product> get addition => _additioncontroller.sink;
+  Sink<CartItem> get addition => _additioncontroller.sink;
 
-  final _additioncontroller = StreamController<Product>();
+  final _additioncontroller = StreamController<CartItem>();
 
   Stream<int> get itemCount => _itemCountSubject.stream;
 
@@ -25,8 +25,8 @@ class CartBloc {
     _additioncontroller.stream.listen(_handle);
   }
 
-  void _handle(Product product) {
-    _cart.add(product);
+  void _handle(CartItem cartItem) {
+    _cart.add(cartItem.product, cartItem.count);
     _itemCountSubject.add(_cart.itemCount);
     _cartSubject.add(_cart);
   }

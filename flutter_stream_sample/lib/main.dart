@@ -8,6 +8,7 @@ import 'models/cart_model.dart';
 import 'widgets/scoped_model_cart_page.dart';
 import 'widgets/cart_provider.dart';
 import 'models/cart_bloc.dart';
+import 'models/cart_item.dart';
 
 import 'package:scoped_model/scoped_model.dart';
 
@@ -72,7 +73,7 @@ class ProductGrid extends StatelessWidget {
           return ProductSquare(
             product: product,
             onTap: () {
-              cartBloc.addition.add(product);
+              cartBloc.addition.add(CartItem(1, product));
             },
           );
         }).toList());
