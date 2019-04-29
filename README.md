@@ -6,3 +6,4 @@ Random example flutter projects.
 5. sliver_examples : Sliver sample in Flutter
 6. my_favorites : Sample favorites app to learn app state management in Flutter
 7. flutter_stream_sample : Sample shopping app to learn state management through streams in Flutter
+8. json_serialization : Sample project to learn JSON Serialization methods in Flutter
