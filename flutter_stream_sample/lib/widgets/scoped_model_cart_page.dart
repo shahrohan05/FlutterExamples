@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'cart_page.dart';
+import 'cart_page_stream.dart';
 import 'package:scoped_model/scoped_model.dart';
 import '../models/cart_model.dart';
 

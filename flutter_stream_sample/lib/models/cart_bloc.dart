@@ -19,6 +19,8 @@ class CartBloc {
 
   Stream<Cart> get cart => _cartSubject.stream;
 
+  List<CartItem> get cartItems => _cart.items;
+
   final _cartSubject = BehaviorSubject<Cart>();
 
   CartBloc() {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'widgets/cart_button.dart';
 import 'models/catalog.dart';
 import 'widgets/product_square.dart';
-import 'widgets/cart_page.dart';
+import 'widgets/cart_page_simple.dart';
 import 'models/cart.dart';
 import 'models/cart_model.dart';
 import 'widgets/scoped_model_cart_page.dart';
